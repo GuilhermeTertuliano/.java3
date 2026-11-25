@@ -1,0 +1,92 @@
+public class Lista06 {
+
+    public static void main(String[] args) {
+        int opcao = Integer.parseInt(IO.readln("Qual exercício executar (1 a 5)? "));
+
+        switch (opcao) {
+            case 1: exercicio01(); break;
+            case 2: exercicio02(); break;
+            case 3: exercicio03(); break;
+            case 4: exercicio04(); break;
+            case 5: exercicio05(); break;
+            default: System.out.println("Exercício inválido.");
+        }
+    }
+
+    static int[][] lerMatriz(int linhas, int colunas) {
+        int[][] m = new int[linhas][colunas];
+        for (int i = 0; i < linhas; i++) {
+            for (int j = 0; j < colunas; j++) {
+                m[i][j] = Integer.parseInt(IO.readln("Elemento [" + i + "][" + j + "]: "));
+            }
+        }
+        return m;
+    }
+
+    static void exercicio01() {
+        int[][] m = lerMatriz(3, 3);
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(m[i][j]);
+                if (j < 2) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    static void exercicio02() {
+        int[][] m = lerMatriz(3, 3);
+
+        int soma = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                soma += m[i][j];
+            }
+        }
+
+        System.out.println("Soma: " + soma);
+    }
+
+    static void exercicio03() {
+        int[][] m = lerMatriz(3, 3);
+
+        int maior = m[0][0];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (m[i][j] > maior) {
+                    maior = m[i][j];
+                }
+            }
+        }
+
+        System.out.println("Maior valor: " + maior);
+    }
+
+    static void exercicio04() {
+        int[][] m = lerMatriz(2, 3);
+
+        int pares = 0;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (m[i][j] % 2 == 0) {
+                    pares++;
+                }
+            }
+        }
+
+        System.out.println("Quantidade de pares: " + pares);
+    }
+
+    static void exercicio05() {
+        int[][] m = lerMatriz(3, 3);
+
+        System.out.print("Diagonal principal:");
+        for (int i = 0; i < 3; i++) {
+            System.out.print(" " + m[i][i]);
+        }
+        System.out.println();
+    }
+}
